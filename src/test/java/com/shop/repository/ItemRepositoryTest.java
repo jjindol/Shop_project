@@ -52,7 +52,7 @@ class ItemRepositoryTest {
     @Test
     @DisplayName("상품 조회 테스트")
     public void findByItemNmTest() {
-        this.findByItemNmTest();
+        this.createItemList();
         List<Item> itemList = itemRepository.findByItemNm("테스트 상품1");
         for (Item item : itemList) {
             System.out.println(item.toString());
