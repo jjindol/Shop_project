@@ -36,7 +36,7 @@ class ItemRepositoryTest {
     }
 
     public void createItemList() {
-        for (int i = 0; i <=10 ; i++) {
+        for (int i = 1; i <=10 ; i++) {
             Item item = new Item();
             item.setItemNm("테스트 상품 " + i);
             item.setPrice(10000 + i);
@@ -50,10 +50,10 @@ class ItemRepositoryTest {
     }
 
     @Test
-    @DisplayName("상품 조회 테스트")
+    @DisplayName("상품명, 상품상세설명 or 테스트" )
     public void findByItemNmTest() {
         this.createItemList();
-        List<Item> itemList = itemRepository.findByItemNm("테스트 상품1");
+        List<Item> itemList = itemRepository.findByPriceLessThanOrderByPriceDesc(10005);
         for (Item item : itemList) {
             System.out.println(item.toString());
         }
