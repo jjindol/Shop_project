@@ -30,6 +30,7 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j:8.0.32'
     annotationProcessor 'org.projectlombok:lombok:1.18.26'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.0'
+    implementation 'com.querydsl:querydsl-jpa:4.3.1'
 }
 
 tasks.named('test') {
