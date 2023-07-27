@@ -2,10 +2,9 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.1.2'
     id 'io.spring.dependency-management' version '1.1.2'
-    id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
 }
 
-group = 'com.example'
+group = 'com.shop'
 version = '0.0.1-SNAPSHOT'
 apply plugin: 'io.spring.dependency-management'
 
@@ -15,7 +14,6 @@ java {
 
 configurations {
     compileOnly {
-        querydsl.extendsFrom compileClasspath
         extendsFrom annotationProcessor
     }
 }
@@ -34,21 +32,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.26'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.0'
     implementation 'com.querydsl:querydsl-jpa:4.3.1'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-
-querydsl {
-    jpa = true // JPA 사용 설정
-    querydslSourcesDir = 'src/main/generated' // 생성된 Qdomain 클래스를 저장할 위치 설정
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs += 'src/main/generated' // Qdomain 클래스를 포함시킬 디렉토리 추가
-        }
-    }
 }
