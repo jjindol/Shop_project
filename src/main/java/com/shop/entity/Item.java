@@ -38,5 +38,4 @@ public class Item { // DB 테이블에 대응하는 클래스
     private LocalDateTime regTime; // 등록 시간
 
     private LocalDateTime updateTime; // 수정 시간
-
 }

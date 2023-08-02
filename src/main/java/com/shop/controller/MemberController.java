@@ -20,5 +20,4 @@ public class MemberController {
         model.addAttribute("memberFormDto", new MemberFormDto());
         return "member/memberForm";
     }
-
 }

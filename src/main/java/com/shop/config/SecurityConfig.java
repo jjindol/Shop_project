@@ -11,7 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
 @Configuration
-public class SecurityConfig { // WebSecurityConfigurerAdapter 상속 불가
+public class SecurityConfig { // WebSecurityConfigurerAdapter 상속 불가(지원 중단)
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
