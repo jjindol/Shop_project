@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class MemberFormDto {
+public class MemberFormDto { // 회원 가입 화면으로부터 넘어오는 가입 정보를 담을 dto
 
     private String name;
 

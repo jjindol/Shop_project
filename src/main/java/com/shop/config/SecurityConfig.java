@@ -14,7 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig { // WebSecurityConfigurerAdapter 상속 불가(지원 중단)
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception { // http 요청에 대한 보안 설정
         return http.build();
     }
 
