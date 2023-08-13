@@ -54,9 +54,10 @@ public class MemberController {
 
         try {
             Member member = Member.createMember(memberFormDto, passwordEncoder);
-
+            memberService.saveMember(member);
         } catch (IllegalStateException e) {
-
+            model.addAttribute("errorMessage", e.getMessage());
+            return "member/memberForm";
         }
         return "redirect:/";
     }
