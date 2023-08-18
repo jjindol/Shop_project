@@ -13,13 +13,12 @@ import org.springframework.security.test.web.servlet.response.SecurityMockMvcRes
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
-
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.formLogin;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
-@TestPropertySource(locations = "classpath: application-test.properties")
+@TestPropertySource(locations = "classpath:application-test.properties") // 공백 주의
 public class MemberControllerTest {
 
     @Autowired
@@ -31,27 +30,25 @@ public class MemberControllerTest {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    public Member createMember(String email, String password) { // 회원을 등록하는 메서드
+    public Member createMember(String email, String password){
         MemberFormDto memberFormDto = new MemberFormDto();
         memberFormDto.setEmail(email);
         memberFormDto.setName("홍길동");
-        memberFormDto.setAddress("서울시 양천구 목동");
+        memberFormDto.setAddress("서울시 마포구 합정동");
         memberFormDto.setPassword(password);
-
         Member member = Member.createMember(memberFormDto, passwordEncoder);
         return memberService.saveMember(member);
     }
 
     @Test
     @DisplayName("로그인 성공 테스트")
-    public void loginSuccessTest() throws Exception {
+    public void loginSuccessTest() throws Exception{
         String email = "test@email.com";
         String password = "1234";
         this.createMember(email, password);
-
         mockMvc.perform(formLogin().userParameter("email")
-                .loginProcessingUrl("/members/login")
-                .user(email).password(password))
+                        .loginProcessingUrl("/members/login")
+                        .user(email).password(password))
                 .andExpect(SecurityMockMvcResultMatchers.authenticated());
     }
 }
