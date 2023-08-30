@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ItemRepository extends JpaRepository<Item, Long> {
+
+    List<Item> findByPriceLessThan(Integer price);
     List<Item> findByPriceLessThanOrderByPriceDesc(Integer price);
 
     @Query("select i from Item i where i.itemDetail like %:itemDetail% order by i.price desc")

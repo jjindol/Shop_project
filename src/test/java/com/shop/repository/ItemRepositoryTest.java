@@ -11,7 +11,6 @@ import org.springframework.test.context.TestPropertySource;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @TestPropertySource(locations="classpath:application-test.properties")
@@ -48,6 +47,17 @@ class ItemRepositoryTest {
             Item savedItem = itemRepository.save(item);
         }
     }
+
+    @Test
+    @DisplayName("가격 LessThan 테스트")
+    public void findByPriceLessThanTest() {
+        this.createItemList();
+        List<Item> itemList = itemRepository.findByPriceLessThan(10005);
+        for (Item item : itemList) {
+            System.out.println(item.toString());
+        }
+    }
+
 
     @Test
     @DisplayName("상품명, 상품상세설명 or 테스트" )
