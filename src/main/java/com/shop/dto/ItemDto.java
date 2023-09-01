@@ -23,6 +23,4 @@ public class ItemDto {
     private LocalDateTime regTime;
 
     private LocalDateTime updateTime;
-
-
 }

@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -69,7 +68,7 @@ class ItemRepositoryTest {
         }
     }
     @Test
-    @DisplayName("Query 를 이용한 상품 조회 테스트")
+    @DisplayName("@Query 를 이용한 상품 조회 테스트")
     public void findByItemDetailTest() {
         this.createItemList();
         List<Item> itemList = itemRepository.findByItemDetail("테스트 상품 상세 설명");
