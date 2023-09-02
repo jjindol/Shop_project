@@ -27,30 +27,29 @@ public class MemberController {
         return "member/memberForm";
     }
 
-    @PostMapping(value = "/new")
-    public String memberForm(MemberFormDto memberFormDto) {
+//    @PostMapping(value = "/new")
+//    public String memberForm(MemberFormDto memberFormDto) {
+//        Member member = Member.createMember(memberFormDto, passwordEncoder);
+//        memberService.saveMember(member);
+//        return "redirect:/";
+//    } 회원가입 후 main 페이지로 리다이렉트
 
-        Member member = Member.createMember(memberFormDto, passwordEncoder);
-        memberService.saveMember(member);
+    @PostMapping(value = "/new")
+    public String newMember(@Valid MemberFormDto memberFormDto, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "member/memberForm";
+        }
+
+        try {
+            Member member = Member.createMember(memberFormDto, passwordEncoder);
+            memberService.saveMember(member);
+        } catch (IllegalStateException e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            return "member/memberForm";
+        }
+
         return "redirect:/";
     }
-
-//    @PostMapping(value = "/new")
-//    public String newMember(@Valid MemberFormDto memberFormDto, BindingResult bindingResult, Model model) {
-//        if (bindingResult.hasErrors()) {
-//            return "member/memberForm";
-//        }
-//
-//        try {
-//            Member member = Member.createMember(memberFormDto, passwordEncoder);
-//            memberService.saveMember(member);
-//        } catch (IllegalStateException e) {
-//            model.addAttribute("errorMessage", e.getMessage());
-//            return "member/memberForm";
-//        }
-//
-//        return "redirect:/";
-//    }
 
 
     @GetMapping(value = "/login")
