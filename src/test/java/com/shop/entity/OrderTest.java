@@ -43,6 +43,7 @@ public class OrderTest {
         item.setUpdateTime(LocalDateTime.now());
         return item;
     }
+
     @Test
     @DisplayName("영속성 전이 테스트")
     public void cascadeTest() {
@@ -66,7 +67,6 @@ public class OrderTest {
         Order savedOrder = orderRepository.findById(order.getId())
                 .orElseThrow(EntityNotFoundException::new);
         assertEquals(3, savedOrder.getOrderItems().size());
-
     }
 }
 
