@@ -110,7 +110,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
     @Test
     @DisplayName("지연 로딩 테스트")
     public void lazyLoadingTest() {
+        Order order = this.createOrder(); // 주문 생성 메소드를 이용해 주문 데이터 저장
+        Long orderItemId = order.getOrderItems().get(0).getId();
+        em.flush();
+        em.clear();
 
+        OrderItem orderItem = orderItemRepository.findById(orderItemId)
+                .orElseThrow(EntityNotFoundException::new);
+        System.out.println("Order class: " + orderItem.getOrder().getClass());
     }
 }
 
