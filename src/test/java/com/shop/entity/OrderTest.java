@@ -3,6 +3,7 @@ package com.shop.entity;
 import com.shop.constant.ItemSellStatus;
 import com.shop.repository.ItemRepository;
 import com.shop.repository.MemberRepository;
+import com.shop.repository.OrderItemRepository;
 import com.shop.repository.OrderRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 @TestPropertySource(locations="classpath:application-test.properties")
 @Transactional
-public class OrderTest {
+    class OrderTest {
 
     @Autowired
     OrderRepository orderRepository;
@@ -32,6 +33,9 @@ public class OrderTest {
 
     @Autowired
     MemberRepository memberRepository;
+
+    @Autowired
+    OrderItemRepository orderItemRepository;
 
     @PersistenceContext
     EntityManager em;
@@ -101,6 +105,12 @@ public class OrderTest {
         Order order = this.createOrder();
         order.getOrderItems().remove(0); // orderItem 리스트의 0번째 인덱스 제거
         em.flush();
+    }
+
+    @Test
+    @DisplayName("지연 로딩 테스트")
+    public void lazyLoadingTest() {
+
     }
 }
 
