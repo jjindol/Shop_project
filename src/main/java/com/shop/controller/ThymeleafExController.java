@@ -21,6 +21,7 @@ public class ThymeleafExController {
         return "thymeleafEx/thymeleafEx01";
     }
 
+
     @GetMapping(value = "/ex02")
     public String thymeleafExample02(Model model){
         ItemDto itemDto = new ItemDto();
@@ -32,6 +33,7 @@ public class ThymeleafExController {
         model.addAttribute("itemDto", itemDto);
         return "thymeleafEx/thymeleafEx02";
     }
+
 
     @GetMapping(value = "/ex03")
     public String thymeleafExample03(Model model){
@@ -53,6 +55,7 @@ public class ThymeleafExController {
         return "thymeleafEx/thymeleafEx03";
     }
 
+
     @GetMapping(value = "/ex04")
     public String thymeleafExample04(Model model){
 
@@ -73,10 +76,12 @@ public class ThymeleafExController {
         return "thymeleafEx/thymeleafEx04";
     }
 
+
     @GetMapping(value = "/ex05")
     public String thymeleafExample05(){
         return "thymeleafEx/thymeleafEx05";
     }
+
 
     @GetMapping(value = "/ex06")
     public String thymeleafExample06(String param1, String param2, Model model){
@@ -84,6 +89,7 @@ public class ThymeleafExController {
         model.addAttribute("param2", param2);
         return "thymeleafEx/thymeleafEx06";
     }
+
 
     @GetMapping(value = "/ex07")
     public String thymeleafExample07(){
