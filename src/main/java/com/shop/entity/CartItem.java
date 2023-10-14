@@ -23,5 +23,5 @@ public class CartItem {
     @JoinColumn(name="item_id")
     private Item item;
 
-    private int count;
+    private int count; // 같은 상품을 장바구니에 몇 개 담을지 저장
 }
