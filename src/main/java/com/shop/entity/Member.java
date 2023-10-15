@@ -34,7 +34,7 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    // 회원을 생성하는 메소드
+    // 회원 생성 메소드
     public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
         Member member = new Member();
         member.setName(memberFormDto.getName());

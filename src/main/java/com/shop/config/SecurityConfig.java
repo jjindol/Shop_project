@@ -34,14 +34,14 @@ public class SecurityConfig {
         http.authorizeRequests()
                 .antMatchers("/css/**", "/js/**", "/img/**").permitAll()
                 .antMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN") // ADMIN Role 일 경우에만 접근 가능
+                .antMatchers("/admin/**").hasRole("ADMIN") // ADMIN 일 경우에만 접근 가능
                 .anyRequest().authenticated()
         ; // static 하위 파일은 인증 무시
 
 
         http.exceptionHandling()
                 .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
-        ; // 인증x 사용자가 리소스에 접근할 때 수행되는 핸들러
+        ; // 인증x 사용자가 리소스에 접근할 때 수행
 
         return http.build();
     }

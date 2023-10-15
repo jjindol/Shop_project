@@ -25,7 +25,7 @@ public class Item { // DB 테이블에 대응하는 클래스
     private String itemNm; // 상품명
 
     @Column(name="price", nullable = false)
-    private int price; // 가격
+    private int price;
 
     @Column(nullable = false)
     private int stockNumber; // 재고수량
