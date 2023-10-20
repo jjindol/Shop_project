@@ -45,6 +45,5 @@ public class Member {
         member.setPassword(password);
         member.setRole(Role.ADMIN);
         return member;
-
     }
 }
