@@ -25,8 +25,4 @@ public class OrderItem {
     private int orderPrice; // 주문 가격
 
     private int count; // 수량
-
-    private LocalDateTime localDateTime;
-
-    private LocalDateTime updateTime;
 }
