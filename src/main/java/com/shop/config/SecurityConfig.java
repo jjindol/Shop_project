@@ -41,7 +41,7 @@ public class SecurityConfig {
 
         http.exceptionHandling()
                 .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
-        ; // 인증x 사용자가 리소스에 접근할 때 수행
+        ; // 인증되지 않은 사용자가 리소스에 접근할 때 수행
 
         return http.build();
     }
